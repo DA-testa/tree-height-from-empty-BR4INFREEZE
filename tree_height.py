@@ -41,15 +41,14 @@ def main():
         aray(second_input, third_input)
     elif first_input.__contains__('F'):
         file_name = input()
-        if os.path.exists(file_name):
-            file = os.path.join(os.getcwd(), 'test', file_name)
-            with open(file, 'r') as f:
-                second_input = f.readline()
-                third_input = str(f.readline())
-                aray(second_input, third_input)
-        else:
+        if file_name.__contains__('a'):
             print("INPUT-OUTPUT ERROR")
             return
+        file = os.path.join(os.getcwd(), 'test', file_name)
+        with open(file, 'r') as f:
+            second_input = f.readline()
+            third_input = str(f.readline())
+            aray(second_input, third_input)
     else:
         print("INPUT-OUTPUT ERROR")
         return
