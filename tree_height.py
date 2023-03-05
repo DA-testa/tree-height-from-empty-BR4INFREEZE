@@ -42,17 +42,18 @@ def main():
     elif first_input.__contains__('F'):
         file_name = input()
         if file_name.__contains__('a'):
+            print("INPUT-OUTPUT ERROR")
             return
         file = os.path.join(os.getcwd(), 'test', file_name)
         with open(file, 'r') as f:
             second_input = f.readline()
             third_input = str(f.readline())
             aray(second_input, third_input)
+    else:
+        print("INPUT-OUTPUT ERROR")
+        return
     print(c)
 
-sys.setrecursionlimit(10**7)
-threading.stack_size(2**27)
-threading.Thread(target=main).start()
 
 if __name__ == "__main__":
     main()
