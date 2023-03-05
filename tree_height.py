@@ -42,7 +42,7 @@ def main():
     elif first_input.__contains__('F'):
         file_name = input()
         if os.path.exists(file_name):
-            with open(file_name[2:4]) as file:
+            with open(file_name, 'r') as file:
                 second_input = file.readline()
                 third_input = str(file.readline())
                 aray(second_input, third_input)
