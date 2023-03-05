@@ -32,7 +32,6 @@ def check(k, start, arr1):
     k -= 1
     return k
 
-
 def main():
 
     first_input = input()
@@ -42,25 +41,20 @@ def main():
         aray(second_input, third_input)
     elif first_input.__contains__('F'):
         file_name = input()
-        if file_name.__contains__("a"):
-            print("INPUT-OUTPUT ERROR")
-            return
-        elif os.path.exists(file_name):
-            with open(file_name) as file:
-                second_input = file.readline()
-                third_input = str(file.readline)
-                aray(second_input, third_input)
-        else:
-            print("INPUT-OUTPUT ERROR")
-            return
-    else:
-        print("INPUT-OUTPUT ERROR")
-        return
+        if os.path.exists(file_name):
+            if file_name.__contains__("a"):
+                print("INPUT-OUTPUT ERROR")
+                return
+            elif os.path.exists(file_name):
+                with open(file_name) as file:
+                    second_input = file.readline()
+                    third_input = str(file.readline())
+                    aray(second_input, third_input)
+            else:
+                print("INPUT-OUTPUT ERROR")
+                return
     print(c)
 
-sys.setrecursionlimit(10**7)
-threading.stack_size(2**27)
-threading.Thread(target=main).start()
 
 if __name__ == "__main__":
     main()
