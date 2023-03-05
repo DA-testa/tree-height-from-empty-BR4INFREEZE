@@ -41,6 +41,7 @@ def main():
         aray(second_input, third_input)
     elif first_input.__contains__('F'):
         file_name = input()
+        print(file_name)
         if os.path.exists(file_name):
             with open("/test" + file_name) as file:
                 second_input = file.readline()
