@@ -1,33 +1,63 @@
-# python3
-
 import sys
 import threading
-import numpy
+import os
+import numpy as np
+
+c = 0
 
 
-def compute_height(n, parents):
-    # Write this function
-    max_height = 0
-    # Your code here
-    return max_height
+def aray(size, numbers):
+
+    splitted = numbers.split()
+    arr1 = np.zeros(int(size))
+    i, k, start = 0, 1, 0
+    for a in range(arr1.size):
+        arr1[i] = int(splitted[i])
+        if arr1[i] == -1:
+            start = i
+        i += 1
+    check(k, start, arr1)
+
+
+def check(k, start, arr1):
+
+    global c
+    for i in range(arr1.size):
+        if arr1[i] == start:
+            move = i
+            k += 1
+            if c < k:
+                c = k
+            k = check(k, move, arr1)
+    k -= 1
+    return k
 
 
 def main():
-    # implement input form keyboard and from files
-    
-    # let user input file name to use, don't allow file names with letter a
-    # account for github input inprecision
-    
-    # input number of elements
-    # input values in one variable, separate with space, split these values in an array
-    # call the function and output it's result
-    pass
 
-# In Python, the default limit on recursion depth is rather low,
-# so raise it here for this problem. Note that to take advantage
-# of bigger stack, we have to launch the computation in a new thread.
-sys.setrecursionlimit(10**7)  # max depth of recursion
-threading.stack_size(2**27)   # new thread will get stack of such size
-threading.Thread(target=main).start()
-main()
-# print(numpy.array([1,2,3]))
+    first_input = input()
+    if first_input.__contains__('I'):
+        second_input = input()
+        third_input = input()
+        aray(second_input, third_input)
+    elif first_input.__contains__('F'):
+        file_name = input()
+        if file_name.__contains__("a"):
+            print("INPUT-OUTPUT ERROR")
+            return
+        elif os.path.exists(file_name):
+            with open(file_name) as file:
+                second_input = file.readline()
+                third_input = str(file.readline)
+                aray(second_input, third_input)
+        else:
+            print("INPUT-OUTPUT ERROR")
+            return
+    else:
+        print("INPUT-OUTPUT ERROR")
+        return
+    print(c)
+
+
+if __name__ == "__main__":
+    main()
