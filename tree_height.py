@@ -28,7 +28,7 @@ def check(a, numbers, arr1):
 
 
 def main():
-    
+
     first_input = input()
     if first_input.__contains__('I'):
         second_input = int(input())
